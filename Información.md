@@ -191,3 +191,65 @@ $paises = [
 
 Acceder a los elementos => $paises[0]['pais']
 ~~~
+
+# Condicionales y Ciclos
+Las condiciones nos permiten tomar decisiones en el código, si se cumple la condición entonces se ejecutarán ciertas instrucciones sino se cumple se ejecutarán otras. Estas se denotan por la instrucción ``if else``.
+
+Los ciclos funcionan de la mano con las condiciones, en este caso si se cumple la instrucción se estará ejecutando repetidas veces una instrucción dada.
+
+Hemos agregado los jobs de forma manual accediendo al arreglo a través de sus índices, hacer esto podría traer errores y no podríamos controlarlo si tuviéramos muchos jobs. Ahora veamos una mejor forma de hacerlo con ciclos.
+
+El primero que tenemos es ``do while`` que va a involucrar la *inicialización de variables y condiciones.*
+El segundo que veremos es ``for`` que es una forma más *simplificada de usar todos los elementos* que componen los ciclos.
+
+~~~
+Condicionales
+$var1 = 5
+if ($var1 > 2) {
+    echo 'es mayor que 2';
+} => Cumple!
+
+$var1 = 5
+if ($var1 > 2) {
+    echo 'es mayor que 2';
+} else {
+    echo 'es menor que 2';
+} => if else
+
+Ciclos
+for => 
+ <?php
+    for($idx = 0;$idx < count($jobs); $idx++) {
+        $description = isset($jobs[$idx]['description']) ? $jobs[$idx]['description'] : 'no hay descripción para este trabajo'; => condicional ternario
+        echo '<li class="work-position">'.
+        '<h5>'.$jobs[$idx]['title'].'</h5>'.
+        '<p>'.$description.'</p>'.
+        '<strong>Achievements:</strong>'.
+        '<ul>'.
+        '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>'.
+        '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>'.
+        '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>'.
+        '</ul>'.
+        '</li>';
+    }
+?>
+
+do ... while() =>
+ <?php
+    $idx = 0;
+   do {
+        $description = isset($jobs[$idx]['description']) ? $jobs[$idx]['description'] : 'no hay descripción para este trabajo';
+        echo '<li class="work-position">'.
+        '<h5>'.$jobs[$idx]['title'].'</h5>'.
+        '<p>'.$description.'</p>'.
+        '<strong>Achievements:</strong>'.
+        '<ul>'.
+        '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>'.
+        '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>'.
+        '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>'.
+        '</ul>'.
+        '</li>';
+        $idx++;
+    }while( $idx < count($jobs))
+?>
+~~~
