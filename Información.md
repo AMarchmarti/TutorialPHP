@@ -32,4 +32,4 @@ En PHP tenemos dos tipos de cadenas, las que son con comillas simples y las de c
 # Tipos de Datos en PHP
 
 ### Tipos escalares:
-    * **boolean**: Valores válidos: true (verdadero) false (falso)
+    - **boolean**:  true (verdadero) false (falso)
