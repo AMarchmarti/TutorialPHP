@@ -316,7 +316,7 @@ Una forma sencilla de controlar la precedencia es utilizando () paréntesis, de 
 ### Operadores aritméticos
 Funcionan para realizar operaciones aritméticas.
 
-![Screenshot](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%202018-08-20%20a%20la%28s%29%2017.35.21-872c31b6-4072-4085-9c20-d978a06503d9.jpg)
+![Screenshot](/imagesInfo/aritmetricos.jpg)
 
 
 ### Operadores de asignación
@@ -350,12 +350,12 @@ $a = $a . $b
 
 ### Operadores de comparación
 Nos permiten comparar valores.
-![Screenshot](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%202018-08-20%20a%20la%28s%29%2017.36.45-ca0354fd-2901-4a4a-b59e-d17050d6185d.jpg)
+![Screenshot](/imagesInfo/comparacion.jpg)
 
 ### Operadores de incremento/decremento
 Permiten incrementar o decrementar un valor en 1.
 
-![Screenshot](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%202018-08-20%20a%20la%28s%29%2017.37.33-2c7d266e-3744-4dba-9796-8652482c14ee.jpg)
+![Screenshot](/imagesInfo/incremento_decremento.jpg)
 
 Es muy importante entender cómo afecta el lugar donde se establece el operador, ejemplo:
 ~~~
@@ -369,7 +369,7 @@ echo $a;   $a = 3
 
 ### Operadores lógicos
 Nos permiten combinar resultados de comparaciones.
-![Screenshot](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%202018-08-20%20a%20la%28s%29%2017.38.35-4d37f1cd-bea2-497f-bf42-a176cf72f137.jpg)
+![Screenshot](/imagesInfo/logicos.jpg)
 
 
 ### Operadores para strings
@@ -382,4 +382,4 @@ echo $var1;  =>  Hola php!!!
 
 
 ### Operadores para arrays
-![Screenshot](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%202018-08-20%20a%20la%28s%29%2017.39.42-7b55c86d-4d3e-44c1-b44b-3354a363eccf.jpg)
+![Screenshot](/imagesInfo/arrys.jpg)
