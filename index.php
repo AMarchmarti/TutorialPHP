@@ -1,17 +1,59 @@
-<?php 
-  $name = 'Toni March';
-  $jobs = [
-    [
-        'title' => 'PHP Developer',
-        'description' => 'This is an awesome job!!'
-    ], 
-    [
-        'title' => 'Python Developer',
-    ],
-    [
-        'title' => 'Develops',
-    ]
+<?php
+$name = 'Toni March';
+$limitMonths = 2000;
+$jobs = [
+  [
+    'title' => 'PHP Developer',
+    'description' => 'This is an awesome job!!!',
+    'visible' => true,
+    'months' => 16
+  ],
+  [
+    'title' => 'Python Dev',
+    'visible' => false,
+    'months' => 14
+  ],
+  [
+    'title' => 'Devops',
+    'visible' => true,
+    'months' => 5
+  ],
+  [
+    'title' => 'Node Dev',
+    'visible' => true,
+    'months' => 24
+  ],
+  [
+    'title' => 'Frontend Dev',
+    'visible' => true,
+    'months' => 3
+  ]
 ];
+
+function getDuration($months) {
+  $years = floor($months / 12);
+  $extraMonths = $months % 12;
+
+  return "$years years $extraMonths months";
+}
+
+function printJob($job) {
+  if($job['visible'] == false) {
+    return;
+  }
+
+  echo '<li class="work-position">'.
+  '<h5>' . $job['title'] . '</h5>'.
+  '<p>' . $job['description'] . '</p>'.
+   '<p>' . getDuration($job['months']) . '</p>'.
+   '<strong>Achievements:</strong>'.
+   '<ul>'.
+  '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>'.
+   '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>'.
+   '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>'.
+   '</ul>'.
+   '</li>';
+}
 
 ?>
 
@@ -41,10 +83,10 @@
         <h1><?php echo $name; ?></h1>
         <h2>PHP Developer</h2>
         <ul>
-          <li>Mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b9d1dcdacdd6cbf9d4d8d0d597dad6d4">[email&#160;protected]</a></li>
+          <li>Mail: amarch@mail.com</li>
           <li>Phone: 1234567890</li>
           <li>LinkedIn: https://linkedin.com</li>
-          <li>Twitter: @hectorbenitez</li>
+          <li>Twitter: @antonimarch</li>
         </ul>
       </div>
     </div>
@@ -62,19 +104,16 @@
         <div>
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
-          <?php
+            <?php
+            $totalMonths = 0;
             for($idx = 0;$idx < count($jobs); $idx++) {
-              $description = isset($jobs[$idx]['description']) ? $jobs[$idx]['description'] : 'no hay descripción para este trabajo';
-              echo '<li class="work-position">'.
-              '<h5>'.$jobs[$idx]['title'].'</h5>'.
-              '<p>'.$description.'</p>'.
-              '<strong>Achievements:</strong>'.
-              '<ul>'.
-              '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>'.
-              '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>'.
-              '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>'.
-              '</ul>'.
-               '</li>';
+              // $totalMonths = $totalMonths + $jobs[$idx]['months'];
+              $totalMonths += $jobs[$idx]['months'];
+              if($totalMonths > $limitMonths) {
+                break;
+              }
+
+              printJob($jobs[$idx]);
             }
             ?>
           </ul>
@@ -138,14 +177,14 @@
     </div>
     <div id="resume-footer" class="row">
       <div class="col">
-          Designed by @hectorbenitez
+          Designed by @antonimarch
       </div>
     </div>
   </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
