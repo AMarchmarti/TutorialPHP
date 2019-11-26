@@ -155,3 +155,39 @@ $res = fopen("c:\\dir\\file.txt", "r");
 $a = null; 
 ?>
 ~~~
+
+# Array
+
+Estas variables que almacenan más de un dato se conocen como arreglos y su sintaxis se va a indicar con [ ] (corchetes).
+
+PHP utiliza índices para localizar a los elementos dentro de la variable.
+
+La estructura de arreglos en PHP es conocida como mapa, lo que quiere decir que tiene una composición de llave valor. Además, un arreglo puede contener más arreglos y cada uno de ellos seguirá la misma estructura.
+
+Algo que debes saber es que en PHP podrás almacenar diferentes tipos de datos en un mismo arreglo.
+
+~~~
+ARRAY => cadena de valores seleccionados por un índice
+$numeros = [
+    'uno',
+    'dos',
+    'tres'
+];
+
+acceder a la segunda posición $numero[1] => Método cotidiano de array
+
+ARRAY como mapa => cadena de clave-valor
+$paises = [
+    [
+        'pais' => 'España'
+    ], 
+    [
+        'pais' => 'Polonia'
+    ],
+    [
+        'pais' => 'Francia'
+    ]
+];
+
+Acceder a los elementos => $paises[0]['pais']
+~~~
