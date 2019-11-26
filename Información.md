@@ -298,3 +298,88 @@ foreach ($array as $llave => $valor) {
     sentencias que pueden usar $llave y $valor
 }
 ~~~
+
+# Operadores
+Antes de continuar hablando de operadores es importante mencionar que existe un concepto conocido como precedencia de operadores el cual nos permitirá saber en qué orden se deben ejecutar los operadores que se encuentren en una sola sentencia.
+
+Por ejemplo, en la sentencia:
+
+1 + 2 * 3
+
+Se ejecutará primero la operación 2 * 3
+Luego se ejecutará la suma con 1
+
+Esto es debido a que * tiene más valor en la precedencia que el +.
+
+Una forma sencilla de controlar la precedencia es utilizando () paréntesis, de esta forma podemos forzar el orden que nosotros queramos, por ejemplo (1 + 2) * 3 será una versión diferente y se ejecutará primero la suma y luego la multiplicación.
+
+### Operadores aritméticos
+Funcionan para realizar operaciones aritméticas.
+
+![alt text](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%202018-08-20%20a%20la%28s%29%2017.35.21-872c31b6-4072-4085-9c20-d978a06503d9.jpg)
+
+
+### Operadores de asignación
+El operador principal de asignación es el símbolo = (igual). Es importante tener en cuenta que este operador no sirve para comparar, normalmente del lado izquierdo del operador tendremos una variable, y este operador sirve para asignar el resultado de lo que se encuentre a la derecha a dicha variable.
+
+$variable = 5;
+
+Lo que tenemos en la derecha puede ser un valor, otra variable, o el resultado de una operación o función.
+
+También existen otros operadores de asignación que se combinan con operadores aritméticos o para strings y nos permiten simplificar algunas sentencias dentro de PHP. Estos son ejemplos de cómo funcionan:
+~~~
+$a += $b
+$a = $a + $b
+
+$a -= $b
+$a = $a - $b
+
+$a *= $b
+$a = $a * $b
+
+$a /= $b
+$a = $a / $b
+
+$a %= $b
+$a = $a % $b
+
+$a .= $b
+$a = $a . $b
+~~~
+
+
+### Operadores de comparación
+Nos permiten comparar valores.
+![alt text](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%202018-08-20%20a%20la%28s%29%2017.36.45-ca0354fd-2901-4a4a-b59e-d17050d6185d.jpg)
+
+### Operadores de incremento/decremento
+Permiten incrementar o decrementar un valor en 1.
+
+![alt text](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%202018-08-20%20a%20la%28s%29%2017.37.33-2c7d266e-3744-4dba-9796-8652482c14ee.jpg)
+
+Es muy importante entender cómo afecta el lugar donde se establece el operador, ejemplo:
+~~~
+$a = 1;
+echo $a++; $a = 1
+echo $a;   $a = 2
+echo ++$a; $a = 3
+echo $a;   $a = 3
+~~~
+
+
+### Operadores lógicos
+Nos permiten combinar resultados de comparaciones.
+![alt text](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%202018-08-20%20a%20la%28s%29%2017.38.35-4d37f1cd-bea2-497f-bf42-a176cf72f137.jpg)
+
+
+### Operadores para strings
+Existen 2 operadores para strings el . (punto) que nos permite concatenar cadenas, y el .= que ya fue visto anteriormente y nos permite simplificar la sintaxis de concatenar algo a una misma cadena, ejemplo:
+~~~
+$var1 = ‘Hola ’ . ‘ php’;
+$var1 .= ‘!!!’;
+echo $var1;  =>  Hola php!!!
+~~~
+
+
+### Operadores para arrays
+![alt text](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%202018-08-20%20a%20la%28s%29%2017.39.42-7b55c86d-4d3e-44c1-b44b-3354a363eccf.jpg)
