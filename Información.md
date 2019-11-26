@@ -382,4 +382,4 @@ echo $var1;  =>  Hola php!!!
 
 
 ### Operadores para arrays
-![Screenshot](/imagesInfo/arrys.jpg)
+![Screenshot](/imagesInfo/arry.jpg)
