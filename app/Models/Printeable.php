@@ -1,5 +1,6 @@
 <?php
+namespace App\Models;
 
-interface Printeable{
-    public function getDesciption()
+interface Printable {
+    public function getDescription();
 }

@@ -1,8 +1,9 @@
 <?php
 
-require_once 'BaseElement.php';
-require_once 'Printeable.php';
+namespace App\Models;
 
-class Project implements Printeable{
+require_once 'BaseElement.php';
+
+class Project extends BaseElement {
 
 }

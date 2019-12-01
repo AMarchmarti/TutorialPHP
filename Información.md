@@ -467,3 +467,10 @@ La palabra reservada que utilizaremos para declarar una interfaz será interface
 Usando Type Hinting estableceremos el tipo de dato que esperamos ya sea una clase o un tipo de dato específico.
 
 La herencia en PHP será de forma sencilla es decir solo que podrá hacer herencia de una sola clase, por lo contrario, con las interfaces que sí podemos implementar varias al mismo tiempo.
+
+# Namespaces
+Esta es una forma de mantener únicos los nombres de los archivos en el mismo directorio.
+
+Esto nos permite tener mejor organizado el proyecto.
+
+Para declarar un espacio de nombres privado se utiliza la palabra reservada namespace.

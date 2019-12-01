@@ -1,13 +1,9 @@
 <?php
+namespace App\Models;
 
-/**
- * Clase que usaremos como base para la herencia entre las demas 
- * que vamos ir añadiendo. Al usar la palabra reservada extends
- * estamos diciendo que la clase en cuestión heredará tanto las funciones como 
- * el constructor del padre, en este caso este sera el padre
- */
+require_once 'Printable.php';
 
-class BaseElement {
+class BaseElement implements Printable {
     protected $title;
     public $description;
     public $visible = true;
@@ -35,5 +31,9 @@ class BaseElement {
         $extraMonths = $this->months % 12;
       
         return "$years years $extraMonths months";
+    }
+
+    public function getDescription() {
+        return $this->description;
     }
 }
