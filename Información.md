@@ -391,3 +391,79 @@ Organizaremos mejor nuestro código para ello lo separaremos en otro archivo lla
 Usaremos la palabra reservada`` include`` para hacer que el archivo index incluya el archivo ``jobs.php``, si lo encuentra lo incluye, pero si no nos mostrará un warning. Existe otro llamado ``require`` que si no lo encuentra nos muestra un error en todo el archivo.
 
 Los métodos **include y require**ejecutan el código del archivo cada vez que lo incluyen, esto puede traer errores en la ejecución de tu código si tienes archivos con funciones pues te dirá que no puedes declarar dos veces una función con el mismo nombre. Para resolver esto existen include_once y require_once que obligan a incluir una sola vez el archivo.
+
+
+# Programación Orientada a Objetos
+La programación orientada a objetos nos ayudará a estructurar mejor nuestros programas. PHP a partir de su versión 5 tiene implementaciones orientadas a objetos, lo que lo hace tener código más reutilizable y mantenible.
+
+Una clase es una plantilla o definición de algo. Y una instancia es la representación concreta de la clase.
+
+Encapsulamiento será el nivel de visibilidad que queramos darle a alguna variable, para ello podemos utilizar los modificadores de acceso private, public y protected.
+
+Con la palabra reservada this estaremos haciendo referencia a la variable que pertenece a la clase.
+
+## Constructor y Métodos
+El método constructor nos permitirá inicializar valores por default, así como también pasar datos como parámetro al momento de inicializar un objeto.
+
+Todas las funciones que tienen __ antes del nombre de la función se conocen como métodos mágicos, investiga más y crea un tutorial en la sección de Tutoriales del curso.
+![Screenshot](/imagesInfo/metodosMagicos.jpg)
+
+## Herencia
+La herencia permite que ciertas clases tengan características de una clase padre. Esta clase se llamará hijo.
+
+Como una buena práctica en PHP lo mejor es tener dividido el código en diferentes archivos. Justo esto es lo que haremos con la definición de la clase Jobs que ahora deberá tener el mismo nombre del archivo, este será BaseElement.php.
+
+Ahora en otro archivo crearemos la clase Job que será hija de BaseElement.php. La herencia la expresaremos con la palabra reservada extends.
+
+Es muy conveniente utilizar require_once cuando queremos utilizar herencia e incluir clases que están en otros archivos.
+
+Dentro de nuestra clase hijo podemos sobrescribir algún método del padre, esto es un concepto que conocemos como polimorfismo. Lo que polimorfismo quiere decir es que tendremos un método que va a funcionar de acuerdo con su contexto donde es llamado.
+
+Si tenemos propiedades con la palabra private en nuestra clase padre, desde nuestra clase hija no podremos acceder a esta propiedad, pero si queremos que siga siendo privada y que las clases hijas tengan acceso podemos usar la palabra clave protected.
+
+### Herencia y polimorfismo
+
+Cuando trabajamos con objetos y clases, algunas veces podemos encontrarnos con clases que son muy similares, incluso que comparten algunos métodos o propiedades, pero que no son completamente iguales.
+
+En este punto hablaremos de la Herencia, un concepto que nos permitirá reutilizar todo las partes que son comunes y nos permitirá tener lo que no es común en clases separadas.
+
+La Herencia funciona como una cadena de herencia, es decir podemos tener una clase y generar una “clase hija” a partir de ella, la clase “hija” reutilizara todas las propiedades y métodos de la clase “padre” y además le permitirá implementar esas partes que la hacen diferente.
+
+Por ejemplo, pensemos que estamos construyendo un sistema de comercio electrónico que maneja libros digitales y álbumes musicales, para esto podríamos generar una cadena de herencia como la siguiente:
+
+![Screenshot](/imagesInfo/polimorfismo-herencia.jpg)
+
+Product(id, title, price, description)
+Book(isbn, publisher, author, pages, profitBonus) extends Product
+Album(company, artist, duration, genre) extends Product
+
+En este ejemplo, un libro es diferente a un álbum en algunas cosas, sin embargo existen ciertas propiedades que se comparten a través de la clase padre Product, de este modo ambas clases comparten las propiedades y métodos de Product pero además de eso implementan propiedades y métodos únicos.
+
+Ahora vamos a hablar de un concepto adicional, el cual también es muy importante, el término es polimorfismo y significa “muchas formas”.
+
+Vamos a pensar que queremos calcular la ganancia que obtendremos de la venta de ciertos productos, y en este caso los libros y los álbumes manejan diferentes porcentajes de ganancia, si generamos un método getProfit en la clase Product este método podría definir cuánto ganaremos de cada producto. Por ejemplo pensemos que ganamos 10%.
+~~~
+public function getProfit() {
+return $price * 0.1;
+}
+~~~
+El agregar este método dentro de Product nos permitirá usarlo en objetos de la clase Product y también en objetos basados en las clases hijas de Product, ahora, vamos a pensar que los libros manejan una fórmula diferente porque maneja un valor de bonus adicional, en este caso podríamos tener el método getProfit pero ahora declarado dentro de la clase Book y utilizando la lógica única de esta clase:
+~~~
+public function getProfit() {
+return $price * (0.1 + $this->profitBonus);
+}
+~~~
+Este concepto es un tipo de polimorfismo el cual llamamos Sobreescritura y lo que nos permite es reemplazar algo que ya estaba definido en una clase padre.
+
+Un ejemplo de uso para esta cadena de herencia es, por ejemplo, si tenemos una lista de productos, algunos de ellos son libros y otros álbumes, y si queremos saber las ganancias totales, simplemente tenemos que recorrer los elementos e ir sumando el resultado del método getProfit y en cada caso el objeto sabrá cuál fórmula utilizar porque está definida dentro de su clase.
+
+En resumen la herencia nos permite reutilizar código entre nuestras clases y el polimorfismo, en este ejemplo la sobreescritura, nos ayudará a que las clases puedan reaccionar de una manera diferente a métodos con el mismo nombre.
+
+## Interfaces
+Las interfaces se pueden ver como un contrato o un acuerdo en el que se pueden estandarizar ciertas cosas.
+
+La palabra reservada que utilizaremos para declarar una interfaz será interface. Y la que nos indicará que estamos usando una interfaz en una clase será implements.
+
+Usando Type Hinting estableceremos el tipo de dato que esperamos ya sea una clase o un tipo de dato específico.
+
+La herencia en PHP será de forma sencilla es decir solo que podrá hacer herencia de una sola clase, por lo contrario, con las interfaces que sí podemos implementar varias al mismo tiempo.

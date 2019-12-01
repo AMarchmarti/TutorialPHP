@@ -34,10 +34,10 @@ $limitMonths = 2000;
         <h1><?php echo $name; ?></h1>
         <h2>PHP Developer</h2>
         <ul>
-          <li>Mail: amarch@mail.com</li>
+          <li>Mail: hector@mail.com</li>
           <li>Phone: 1234567890</li>
           <li>LinkedIn: https://linkedin.com</li>
-          <li>Twitter: @antonimarch</li>
+          <li>Twitter: @hectorbenitez</li>
         </ul>
       </div>
     </div>
@@ -59,18 +59,26 @@ $limitMonths = 2000;
             $totalMonths = 0;
             for($idx = 0;$idx < count($jobs); $idx++) {
               // $totalMonths = $totalMonths + $jobs[$idx]['months'];
-              $totalMonths += $jobs[$idx]['months'];
+              $totalMonths += $jobs[$idx]->months;
               if($totalMonths > $limitMonths) {
                 break;
               }
 
-              printJob($jobs[$idx]);
+              printElement($jobs[$idx]);
             }
             ?>
           </ul>
         </div>
         <div>
             <h3 class="border-bottom-gray">Projects</h3>
+            <ul>
+            <?php
+            for($idx = 0;$idx < count($projects); $idx++) {
+              printElement($projects[$idx]);
+            }
+            ?>
+          </ul>
+
             <div class="project">
                 <h5>Project X</h5>
                 <div class="row">
@@ -128,7 +136,7 @@ $limitMonths = 2000;
     </div>
     <div id="resume-footer" class="row">
       <div class="col">
-          Designed by @antonimarch
+          Designed by @hectorbenitez
       </div>
     </div>
   </div>
